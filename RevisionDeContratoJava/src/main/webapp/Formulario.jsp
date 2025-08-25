@@ -33,18 +33,16 @@ body {
 .contenedor-principal {
 	width: 823px; /* Ancho total del contenedor principal */
 	height: auto;
-	display: flex;
-	/* Para alinear los contenedores hijos horizontalmente */
+	display: flex;	/* Para alinear los contenedores hijos horizontalmente */
 	margin: 0 auto;
 	background: #fff;
 	padding: 0;
 }
 /*conteiner logo*/
 .form-container1 {
-	width: 50%;
-	height: 100%;
+	flex: 1;
 	background: #fff;
-	padding: 10px;
+	padding: 11.3px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border: 3px solid black;
 	border-bottom: none;
@@ -57,8 +55,7 @@ body {
 }
 /*container título*/
 .form-container2 {
-	width: 100%;
-	height: auto;
+	flex: 2;
 	/*margin: 20px auto;*/ /*parte inferior y superior, el 2do izq y der*/
 	background: #fff;
 	padding: 10px;
@@ -79,8 +76,7 @@ body {
 }
 /*container descrip*/
 .form-container3 {
-	width: 50%; /*auto;*/
-	height: 100%;
+	flex: 1;
 	/*margin: 20px auto;*/
 	background: #fff;
 	padding: 10px;
@@ -126,10 +122,9 @@ body {
 }
 
 .form-container6 {
-	width: 800px;
-	margin: 20px auto;
+	width: 823px;
+	margin: 1px auto;
 	background: #fff;
-	padding: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border: 3px solid black;
 }
@@ -166,7 +161,7 @@ h2 {
     color: white;             /* texto blanco */
     font-size: 18px;
     font-weight: bold;
-    padding: 5px 10px;        /* espacio interior */
+    padding: 2px 10px;        /* espacio interior */
     margin: 0;  
 }
 
@@ -221,6 +216,35 @@ button {
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
+
+.SeccionA{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;   /* permite que se acomoden en varias filas si no entra */
+  gap: 1px;    /* espacio entre filas y columnas */
+  align-items: left;
+}
+
+
+.SeccionA label {
+  min-width: 50px;  /* ancho fijo de las etiquetas */
+  font-weight: bold;
+  text-align: left;
+}
+
+.SeccionA input{
+  flex: 1;
+  min-width: 100px;  /* ancho mínimo de los campos */
+  height:20px;
+}
+
+.ContenedorFirma{  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    height: 100%;
+}
+
 </style>
 
 <body>
@@ -279,7 +303,7 @@ button {
 				    <label> Solicitante: </label>
 				    <input type="text" id="txtSolicitante" name="txtSolicitante">
 				    
-				    <label> Responsable:: </label>
+				    <label> Responsable: </label>
 				    <input type="text" id="txtResponsable" name="txtResponsable">
 				    
 				    <label> Domicilio: </label>
@@ -288,13 +312,13 @@ button {
 				    <label> Localidad: </label>
 				    <input type="text" id="txtLocalidad" name="txtLocalidad">
 				    
-				    <label> C.P.: </label>
+				    <label> C.P: </label>
 				    <input type="text" id="txtCP" name="txtCP">
 				    
 				    <label> Provincia/País: </label>
 				    <input type="text" id="txtProvincia" name="txtProvincia">
 				    
-				    <label> Tel.: </label>
+				    <label> Tel: </label>
 				    <input type="text" id="txtTelefono" name="txtTelefono">
 				    
 				    <label> E-mail: </label>
@@ -393,7 +417,7 @@ button {
 			<div class="SeccionD"> 
 		      
 		       		<label>Fecha prevista de entrega: </label>
-					<input type="date" id="txtEntrega" name="txtEntrega">
+					<input type="text" id="txtEntrega" name="txtEntrega">
 					
 					<br>
 				    <br>
