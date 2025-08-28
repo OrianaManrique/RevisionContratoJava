@@ -160,9 +160,34 @@ h2 {
     background-color: black;  /* fondo negro */
     color: white;             /* texto blanco */
     font-size: 18px;
+    font-style: italic;
+    padding: 2px 10px;        /* espacio interior */
+    margin: 0;  
+}
+
+.TituloSeccion label,
+.TituloSeccionB label{ 
+	display:inline-block;
+}
+
+.TituloSeccionB{ 
+	display: block;  
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;        
+    background-color: #C7C5C5;  /* fondo negro */
+    color: black;             /* texto blanco */
+    font-size: 18px;
     font-weight: bold;
     padding: 2px 10px;        /* espacio interior */
     margin: 0;  
+}
+
+.ContenedorSubcontratar{
+  border-top: 1px solid black;
+}
+
+.ContenedorFechaEntrega{
+  border-bottom: 1px solid black;
 }
 
 form {
@@ -181,6 +206,12 @@ label {
 	margin-bottom: 10px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
+}
+
+input {
+    outline: none;
+    border: none;
+    background: transparent;
 }
 
 button {
@@ -222,7 +253,6 @@ button {
   width: 100%;
   display: flex;
   flex-wrap: wrap;   /* permite que se acomoden en varias filas si no entra */
-  gap: 1px;    /* espacio entre filas y columnas */
   align-items: left;
 }
 
@@ -243,6 +273,65 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 20%;
     height: 100%;
+}
+
+.SeccionD label,
+.SeccionB label{
+  display:inline-block;
+}
+
+.SeccionB textarea{
+   resize: none;
+   width: 99%;
+   height: 100%;
+}
+
+.SeccionCNoAprobado label,
+.SeccionC label{
+  display:inline-block;
+  font-weight: bold;
+}
+
+.TituloSeccion {
+    display: block;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-style: italic;
+    padding: 4px 8px;
+    font-weight: bold;
+}
+
+
+.TablaCliente {
+    width: 100%;
+    table-layout: fixed;   /* fuerza a respetar el colgroup */
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.TablaCliente td {
+    border: 1px solid black;
+    padding: 3px 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.campo {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    width: 100%;   /* ocupa la mayor parte de la celda */
+    outline: none;
+}
+
+/* Al imprimir, se muestran como texto plano */
+@media print {
+    .campo {
+        border: none;
+        background: transparent;
+        pointer-events: none;
+    }
 }
 
 </style>
@@ -289,45 +378,37 @@ button {
 		
                   <div class="TituloSeccion">                           
                   
-					<label style="display:inline-block; margin-right:140px;" > A) DATOS DEL CLIENTE </label>
-					<label style="display:inline-block;"> REVISIÓN DE CONTRATO N°: </label>
-					<input type="text" id="txtNumeroContrato" name="txtNumeroContrato">
+					<label style="margin-right:190px;" > A) DATOS DEL CLIENTE </label>
+					<label> REVISIÓN DE CONTRATO N°: </label>
+					<input style="color: white;" type="text" id="txtNumeroContrato" name="txtNumeroContrato">
 					
 			      </div>
 			      
 			      <br>
                   <br>
 			      
-			      <div class="SeccionA">                           
+               <table class="TablaCliente">
+              
+                  <tr>
+                     <td><b>Solicitante:</b> <input type="text" id="txtSolicitante" name="txtSolicitante" class="campo" ></td>
+                     <td><b>Responsable:</b> <input type="text" id="txtResponsable" name="txtResponsable" class="campo"></td>
+                                       
+                 </tr>
                  
-				    <label> Solicitante: </label>
-				    <input type="text" id="txtSolicitante" name="txtSolicitante">
-				    
-				    <label> Responsable: </label>
-				    <input type="text" id="txtResponsable" name="txtResponsable">
-				    
-				    <label> Domicilio: </label>
-				    <input type="text" id="txtDomicilio" name="txtDomicilio">
-				    
-				    <label> Localidad: </label>
-				    <input type="text" id="txtLocalidad" name="txtLocalidad">
-				    
-				    <label> C.P: </label>
-				    <input type="text" id="txtCP" name="txtCP">
-				    
-				    <label> Provincia/País: </label>
-				    <input type="text" id="txtProvincia" name="txtProvincia">
-				    
-				    <label> Tel: </label>
-				    <input type="text" id="txtTelefono" name="txtTelefono">
-				    
-				    <label> E-mail: </label>
-				    <input type="text" id="txtEmail" name="txtEmail">
-				    
-				    <label> Otros: </label>
-				    <input type="text" id="txtOtros" name="txtOtros">
-				
-               	</div>
+                  <tr>
+                     <td><b>Domicilio:</b> <input type="text" id="txtDomicilio" name="txtDomicilio" class="campo" ></td> 
+                     <td><b>Localidad:</b> <input type="text" id="txtLocalidad" name="txtLocalidad" class="campo" ></td>
+                     <td><b>C.P.:</b> <input type="text" id="txtCP" name="txtCP" class="campo"></td>
+                 </tr>
+                 
+                 <tr>
+                     <td><b>Provincia/País:</b> <input type="text" id="txtProvincia" name="txtProvincia" class="campo"></td> 
+                     <td><b>Tel:</b> <input type="text" id="txtTelefono" name="txtTelefono" class="campo"></td>
+                     <td><b>E-mail:</b> <input type="text" id="txtEmail" name="txtEmail" class="campo"></td>         
+                     <td><b>Otros:</b> <input type="text" id="txtOtros" name="txtOtros" class="campo"></td>                               
+                 </tr>
+                 
+               </table>
                	
                	<br>
                	<br>
@@ -339,33 +420,99 @@ button {
 					<label> B) REQUISITOS DEL CLIENTE </label>
                 </div>
                 
+                 <div class="TituloSeccionB"> 
+                	<label style="margin-right:350px;"> B.1) Solicitud del Cliente: </label>
+					<label> Fecha: </label>
+					<input type="text" id="txtFechaB1" name="txtFechaB1">
+				</div>
+                
                 <br>
                 <br>
 				
 				<div class="SeccionB"> 
 				
-				   <label> B.1) Solicitud del Cliente: </label>
-				   <input type="text" id="txtSolicitud" name="txtSolicitud">
+				   <textarea rows="10" cols="50" name="textAreaB1">Por el servicio de calibración de dos calibres pie...</textarea>
 				   
-				   <label> B.2) Análisis de Factibilidad de prestación del servicio solicitado : </label>
-				   <input type="text" id="txtFactibilidad" name="txtFactibilidad">
+				   <div class="TituloSeccionB"> 
+                     <label style="margin-right:5px;"> B.2) Análisis de Factibilidad de prestación del servicio solicitado : </label>
+				     <label> Fecha: </label>
+				     <input type="text" id="txtFechaB2" name="txtFechaB2">
+				  </div>
+				      
+				     <!-- Capacidad y recursos disponibles: -->
+				     
+				     <label> Capacidad y recursos disponibles:  </label>
+				      SI
+				     <input type="radio"  name="ckbCapacidadyRecursos" value="si">
+				      NO
+				     <input type="radio" name="ckbCapacidadyRecursos" value="no">
+				     
+				     <br>
+				     
+				     <!-- Riesgos de imparcialidad/ confidencialidad: -->
+				     
+				     <label> Riesgos de imparcialidad/ confidencialidad:  </label>
+				      SI
+				     <input type="radio"  name="ckbRiesgos" value="si">
+				      NO
+				     <input type="radio" name="ckbRiesgos" value="no">
+				     
+				     <br>
+				     
+				     <!-- Existencia de riesgos: -->
+				     
+				     <label> Existencia de riesgos:  </label>
+				      SI
+				     <input type="radio"  name="ckbExistenciaRiesgos" value="si">
+				      NO
+				     <input type="radio" name="ckbExistenciaRiesgos" value="no">
+				     
+				     <br>
+				     
+				     <!-- Conflictos de interés con partes interesadas: -->
+				     
+				     <label> Conflictos de interés con partes interesadas:  </label>
+				      SI
+				     <input type="radio"  name="ckbConflictos" value="si">
+				      NO
+				     <input type="radio" name="ckbConflictos" value="no">
+				     
+				     <br>
+				     <br>		   
 				   
-				   <label> ¿Necesidad de subcontratar? </label>
-				   Si
-				   <input type="radio"  name="ckbSubcontratar" value="si">
-				   No
-				   <input type="radio" name="ckbSubcontratar" value="no">		
-				  
+				   <div class="ContenedorSubcontratar">   
+				     <label> ¿Necesidad de subcontratar? </label>
+				      SI
+				     <input type="radio"  name="ckbSubcontratar" value="si">
+				      NO
+				     <input type="radio" name="ckbSubcontratar" value="no">		
+				   </div>
                </div>
                
                <br>
                <br>
-           
+                           
+                <div class="TituloSeccionB"> 
+                	<label style="margin-right:270px;"> B.3) Acuerdo del trabajo a realizar: </label>
+					<label> Fecha: </label>
+					<input type="text" id="txtFechaB3" name="txtFechaB3">
+				</div>
+				
+				 <label style="font-weight: bold"> IDEM PUNTO B.1 SEGÚN LO ACEPTADO POR EL CLIENTE </label>
+               
+                 <br>
+                 <br>
+               
+                 <label style="font-weight: bold ; display:inline-block;" > Forma de pago acordada:  </label>
+                 <input type="text" id="txtFormaPago" name="txtFormaPago">
+                 
+                 <br>
+                 <br>
+                       
 			<!-- Sección C -->
 			
                 <div class="TituloSeccion">  
 					<label> C) REVISIÓN Y APROBACIÓN / MODIFICACIÓN </label>
-
                 </div>
                 
                 <br>
@@ -373,10 +520,13 @@ button {
                 
                 <div class="SeccionC"> 
 				
-				<label> C.1) ¿Fue aceptado el contrato? </label>				
-				   Si
+				   <label> C.1) ¿Fue aceptado el contrato? </label>				
+				   SI
 				   <input type="radio"  name="ckbContratoAceptado" value="si">
-				   No
+				   
+				   <label> Fecha: </label> <input type="text" id="txtFechaContratoAceptado" name="txtFechaContratoAceptado">
+				   
+				   NO  (si es NO aclarar en C.2)
 				   <input type="radio" name="ckbContratoAceptado" value="no">
              
                 </div>
@@ -415,9 +565,11 @@ button {
 			</div>
 			
 			<div class="SeccionD"> 
-		      
-		       		<label>Fecha prevista de entrega: </label>
-					<input type="text" id="txtEntrega" name="txtEntrega">
+		            
+		            <div class="ContenedorFechaEntrega"> 
+		       		  <label>Fecha prevista de entrega de elemento(s) a calibrar, medir o ensayar: </label>
+					  <input type="text" id="txtEntrega" name="txtEntrega">
+					</div>
 					
 					<br>
 				    <br>
